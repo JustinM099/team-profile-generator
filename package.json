@@ -1,0 +1,16 @@
+{
+  "name": "homework-week-10",
+  "version": "1.0.0",
+  "description": "a cli team profile generator",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "node server.js"
+  },
+  "author": "justin meredith",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "inquirer": "^8.2.0"
+  }
+}
