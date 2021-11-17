@@ -1,4 +1,9 @@
-function generateHtml(data){
+function generateHtml(team){
+    var cards = []
+    for(let i=0; i < team.length; i++){
+        var card = ``
+        cards.push(card)
+    }
 return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +13,7 @@ return `<!DOCTYPE html>
     <title>Document</title>
 </head>
 <body>
-    
+    ${team}
 </body>
 </html>`
 }

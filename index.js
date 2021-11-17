@@ -114,7 +114,7 @@ const engineerQs = [
 const internQs = [
     {
         type: 'input',
-        message: 'What is the name of the engineer?',
+        message: 'What is the name of the intern?',
         name: 'name',
         validate: (response) => {
             if (!response) {
@@ -126,7 +126,7 @@ const internQs = [
     },
     {
         type: 'input',
-        message: 'What is the ID of the engineer?',
+        message: 'What is the ID of the intern?',
         name: 'id',
         validate: (response) => {
             if (!response) {
@@ -138,7 +138,7 @@ const internQs = [
     },
     {
         type: 'input',
-        message: 'What is the email address of the engineer?',
+        message: 'What is the email address of the intern?',
         name: 'email',
         validate: (response) => {
             if (!response) {
@@ -217,6 +217,8 @@ const engineerQuestions = () => {
 const internQuestions = () => {
     inquirer.prompt(internQs).then((answers) => {
         var intern = new Intern(answers.name, answers.id, answers.email, answers.school)
+        team.push(intern)
+        addAnother()
     })
 }
 
