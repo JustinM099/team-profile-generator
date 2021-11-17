@@ -167,10 +167,11 @@ const addAnother = () => {
         {
             type: 'confirm',
             message: 'Would you like to add another team member?',
-            name: 'add-query',
+            name: 'addQuery',
         },
     ]).then((response) => {
-        if(response === true){
+        console.log(response)
+        if(response.addQuery == true){
             employeeType()
         }else{
             writeToFile()
@@ -189,14 +190,14 @@ const employeeType = () => {
         {
             type: 'list',
             message: 'What kind of employee is this?',
-            choices: ['Engineer', 'Intern'],
+            choices: ['Engineer', 'Intern', 'Cancel'],
             name: 'type',
 
         }
     ]).then((response) => {
-        if(response === 'Engineer'){
+        if(response.type === 'Engineer'){
             engineerQuestions()
-        }else if(response === 'Intern'){
+        }else if(response.type === 'Intern'){
             internQuestions()
         }else{
             writeToFile()
