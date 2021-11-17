@@ -162,7 +162,7 @@ const internQs = [
     }
 ]
 
-function addAnother(){
+const addAnother = () => {
     inquirer.prompt([
         {
             type: 'confirm',
@@ -180,16 +180,17 @@ function addAnother(){
     )
 }
 
-function writeToFile(){
-
+const writeToFile = () => {
+    console.log(team)
 }
 
-function employeeType(){
+const employeeType = () => {
     inquirer.prompt([
         {
-            type: '',
-            message: '',
-            name: '',
+            type: 'list',
+            message: 'What kind of employee is this?',
+            choices: ['Engineer', 'Intern'],
+            name: 'type',
 
         }
     ]).then((response) => {
@@ -204,7 +205,7 @@ function employeeType(){
     )
 }
 
-function engineerQuestions(){
+const engineerQuestions = () => {
     inquirer.prompt(engineerQs).then((answers) => {
         var engineer = new Engineer(answers.name, answers.id, answers.email, answers.github)
         team.push(engineer)
@@ -212,13 +213,13 @@ function engineerQuestions(){
     })
 }
 
-function internQuestions(){
+const internQuestions = () => {
     inquirer.prompt(internQs).then((answers) => {
         var intern = new Intern(answers.name, answers.id, answers.email, answers.school)
     })
 }
 
-function managerQuestions(){
+const managerQuestions = () => {
     inquirer.prompt(managerQs).then((answers) => {
         var manager = new Manager(answers.name, answers.id, answers.email, answers.office)
         team.push(manager)
