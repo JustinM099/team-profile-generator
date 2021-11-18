@@ -5,7 +5,6 @@ const Manager = require('./lib/Manager.js')
 const Engineer = require('./lib/Engineer.js')
 const Intern = require('./lib/Intern.js')
 
-
 let team = []
 
 const managerQs = [
@@ -57,7 +56,7 @@ const managerQs = [
             }
         }
     },
-    
+
 ]
 
 const engineerQs = [
@@ -171,19 +170,18 @@ const addAnother = () => {
         },
     ]).then((response) => {
         console.log(response)
-        if(response.addQuery == true){
+        if (response.addQuery == true) {
             employeeType()
-        }else{
-            writeToFile()
+        } else {
+            // writeToFile('yourHTML.html', generateHTML(team))
+            createCard(team)
         }
     }
 
     )
 }
 
-const writeToFile = () => {
-    console.log(team)
-}
+
 
 const employeeType = () => {
     inquirer.prompt([
@@ -195,11 +193,11 @@ const employeeType = () => {
 
         }
     ]).then((response) => {
-        if(response.type === 'Engineer'){
+        if (response.type === 'Engineer') {
             engineerQuestions()
-        }else if(response.type === 'Intern'){
+        } else if (response.type === 'Intern') {
             internQuestions()
-        }else{
+        } else {
             writeToFile()
         }
     }
@@ -236,5 +234,25 @@ function init() {
 
 init()
 
+const writeToFile = (fileName, data) => {
+    console.log(data)
+    fs.writeFile(`${fileName}`, data, (err) =>
+    err ? console.error('Error! : ' + err) : console.log('Your HTML has been successfully generated!'))
+
+}
+
+const createCard = (team) => {
+    team.forEach((member) => {
+        console.log(member)
+    })
+}
 
 // when: (answers) => answers.employeeType === Employee.Intern,
+
+// function writeToFile(fileName, data) {
+//     fs.writeFile(`${fileName}`, data, (err) =>
+//         err ? console.error('Error! : ' + err) : console.log('Your README has been successfully generated!'))
+// }
+
+// function init() {
+//     inquirer.prompt(questions).then((data) => writeToFile('yourREADME.md', generateMarkdown(data)))
