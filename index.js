@@ -1,6 +1,5 @@
 const fs = require('fs')
 const inquirer = require('inquirer')
-// const generateHTML = require('./dist/generateHTML.js')
 const Manager = require('./lib/Manager.js')
 const Engineer = require('./lib/Engineer.js')
 const Intern = require('./lib/Intern.js')
@@ -236,7 +235,7 @@ const createCards = (team) => {
     let cards = []
     team.forEach((member) => {
         console.log(member.getRole())
-        switch(member.getRole()){
+        switch (member.getRole()) {
             case 'Manager':
                 memberRole = `Office ${member.office}`
                 break
@@ -249,24 +248,16 @@ const createCards = (team) => {
         }
         let memberCard = `<div class='card col-lg-3 m-2 shadow'><h1 class="card-header bg-info">${member.name}</h1><h3>${member.getRole()}</h3><h3>${member.id}</h3><h3>${member.email}</h3><h3>${memberRole}</h3></div>`
         cards.push(memberCard)
-        })
+    })
     cardString = cards.join("")
-    console.log(cardString) 
+    console.log(cardString)
     return cardString
 }
-
-// const showCards = (createCards) => {
-//     let cardsArray = []
-//     createCards.forEach((card) => {
-//         cardsArray.push(card)
-//     })
-//     return cardsArray.join("")
-// }
 
 const writeToFile = (fileName, data) => {
 
     fs.writeFile(`${fileName}`, data, (err) =>
-    err ? console.error('Error! : ' + err) : console.log('Your HTML has been successfully generated!'))
+        err ? console.error('Error! : ' + err) : console.log('Your HTML has been successfully generated!'))
 }
 
 const generateHtml = (cards) => {
