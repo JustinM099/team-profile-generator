@@ -28,7 +28,7 @@
   
   ## Video
   
-  Here's a link to a video of this program in action: 
+  Here's a link to a video of this program in action: https://watch.screencastify.com/v/uyG1lx719YpQqZxOQPev
   
   ## Questions
   
