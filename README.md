@@ -23,11 +23,12 @@
   
   ## Testing
 
+    npm test
 
   
   ## Video
   
-  Here's a link to a video of this program in action: https://watch.screencastify.com/v/NeDSM7RYhUI9ArQfvqro
+  Here's a link to a video of this program in action: 
   
   ## Questions
   
